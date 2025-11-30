@@ -1,0 +1,21 @@
+# Root
+baseURL = 'https://aao.fyi/'
+languageCode = 'en'
+theme = 'codeberg.org/aao-fyi/shock'
+
+# Info
+title = 'Kits'
+copyright = 'aao.fyi'
+
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'
+  # Rando.js
+  [[module.imports]]
+    path = 'github.com/nastyox/Rando.js'
+  [[module.imports.mounts]]
+    source = 'code/plain-javascript/2.0.0/'
+    target = 'assets/js/kits/randojs/'

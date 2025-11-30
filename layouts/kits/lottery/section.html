@@ -1,0 +1,55 @@
+{{ define "main" }}
+  <div class="lottery container text-center fw-bold fs-2">
+    <h2 id="lottery-title"></h2>
+
+    <ul class="lottery-numbers list-unstyled d-flex flex-wrap justify-content-center">
+      JavaScript required to generate numbers.
+    </ul>
+
+    {{ range first 1 .Site.Data.kits.lottery }}
+    <button id="lottery-draw" class="btn btn-primary m-2"
+      data-draw-title="{{ .title }}"
+      data-draw-min="{{ .drawMin }}"
+      data-draw-max="{{ .drawMax }}"
+      data-draw-count="{{ .drawCount }}"
+      data-bonus-min="{{ .bonusMin }}"
+      data-bonus-max="{{ .bonusMax }}"
+      data-bonus-count="{{ .bonusCount }}"
+      data-draw-color="{{ .color }}"
+    >
+      Draw {{ partial "icon" "refresh-cw" }}
+    </button>
+    {{ end }}
+
+    <hr/>
+
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+      {{ range .Site.Data.kits.lottery }}
+      <div class="col">
+        <button class="lottery-draw-opt btn btn-primary m-1 w-100"
+          data-draw-title="{{ .title }}"
+          data-draw-min="{{ .drawMin }}"
+          data-draw-max="{{ .drawMax }}"
+          data-draw-count="{{ .drawCount }}"
+          data-bonus-min="{{ .bonusMin }}"
+          data-bonus-max="{{ .bonusMax }}"
+          data-bonus-count="{{ .bonusCount }}"
+          data-draw-color="{{ .color }}"
+        >
+          {{ .title }}
+        </button>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ .Content | safeHTML }}
+{{ end }}
+
+{{ define "foot" }}
+  {{ $randoJS := resources.Get "js/kits/randojs/rando.js" }}
+  {{ $lotteryJS := resources.Get "js/kits/lottery.js" }}
+  {{ $pageJS := slice $randoJS $lotteryJS | resources.Concat "js/kits/lottery-kit.js" | minify }}
+  {{ $pageSRI := $pageJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $pageSRI.RelPermalink }}" integrity="{{ $pageSRI.Data.Integrity }}"></script>
+{{ end }}

@@ -1,0 +1,60 @@
+{{ define "main" }}
+    {{ $timeBaseDate := "1989-08-18" }}
+    {{ $timeBaseInfo := "the release of unrelated Belgian techno anthem 'Pump Up The Jam'" }}
+
+    <div class="container time text-center fw-bold fs-2">
+
+    <div class="row align-items-center py-2">
+        {{/* Label */}}
+        <div class="col">
+        <p>Date:</p>
+        </div>
+
+        {{/* Input */}}
+        <div class="col">
+        <input type="date" name="date" class="time-input form-control" />
+        </div>
+
+        {{/* Button */}}
+        <div class="col">
+        <button class="time-button btn btn-primary m-2" data-time-base="{{ $timeBaseDate }}">Calculate {{ partial "icon" "clock" }}</button>
+        </div>
+    </div>
+
+    <div class="row align-items-center p-1">
+        {{/* Year */}}
+        <div class="col col-12 col-sm-12 col-md-4 py-2">
+        <div class="card">
+            <div class="card-header">Years</div>
+            <p class="card-title fs-1 time-year">&infin;</p>
+        </div>
+        </div>
+        {{/* Month */}}
+        <div class="col col-12 col-sm-6 col-md-4 py-2">
+        <div class="card">
+            <div class="card-header">Months</div>
+            <p class="card-title fs-1 time-month">&infin;</p>
+        </div>
+        </div>
+        {{/* Day */}}
+        <div class="col col-12 col-sm-6 col-md-4 py-2">
+        <div class="card">
+            <div class="card-header">Days</div>
+            <p class="card-title fs-1 time-day">&infin;</p>
+        </div>
+        </div>
+    </div>
+    <p>
+        <span class="time-diff">After</span>
+        {{ $timeBaseInfo }}.
+    </p>
+      {{ .Content | safeHTML }}
+    </div>
+{{ end }}
+
+{{ define "foot" }}
+  {{ $timeJS := resources.Get "js/kits/time.js" }}
+  {{ $pageJS := slice $timeJS | resources.Concat "js/kits/time-kit.js" | minify }}
+  {{ $pageSRI := $pageJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $pageSRI.RelPermalink }}" integrity="{{ $pageSRI.Data.Integrity }}"></script>
+{{ end }}

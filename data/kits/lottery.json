@@ -1,0 +1,95 @@
+[
+  {
+    "title": "Cash 4 Life",
+    "color": "#0c6955",
+    "drawMin": 1,
+    "drawMax": 60,
+    "drawCount": 5,
+    "bonusMin": 1,
+    "bonusMax": 4,
+    "bonusCount": 1
+  },
+  {
+    "title": "Jersey Cash 5",
+    "color": "#953d96",
+    "drawMin": 1,
+    "drawMax": 45,
+    "drawCount": 5
+  },
+  {
+    "title": "Jersey Pick 6",
+    "color": "#007ac2",
+    "drawMin": 1,
+    "drawMax": 46,
+    "drawCount": 6
+  },
+  {
+    "title": "Keno",
+    "color": "#d2232a",
+    "drawMin": 1,
+    "drawMax": 80,
+    "drawCount": 10
+  },
+  {
+    "title": "Mega Millions",
+    "color": "#cc9a06",
+    "drawMin": 1,
+    "drawMax": 70,
+    "drawCount": 5,
+    "bonusMin": 1,
+    "bonusMax": 25,
+    "bonusCount": 1
+  },
+  {
+    "title": "NY Pick 10",
+    "color": "#ffe363",
+    "drawMin": 1,
+    "drawMax": 80,
+    "drawCount": 10
+  },
+  {
+    "title": "NY Take 5",
+    "color": "#ca3092",
+    "drawMin": 1,
+    "drawMax": 39,
+    "drawCount": 5
+  },
+  {
+    "title": "Numbers",
+    "color": "#4f82bd",
+    "drawMin": 1,
+    "drawMax": 9,
+    "drawCount": 3
+  },
+  {
+    "title": "PA Cash 5",
+    "color": "#f69da3",
+    "drawMin": 1,
+    "drawMax": 43,
+    "drawCount": 5
+  },
+  {
+    "title": "Powerball",
+    "color": "#c8102e",
+    "drawMin": 1,
+    "drawMax": 69,
+    "drawCount": 5,
+    "bonusMin": 1,
+    "bonusMax": 26,
+    "bonusCount": 1
+  },
+  {
+    "title": "Quick Draw",
+    "color": "#a4c93b",
+    "drawMin": 1,
+    "drawMax": 80,
+    "drawCount": 10
+  },
+  {
+    "title": "Treasure Hunt",
+    "color": "#feca4e",
+    "drawMin": 1,
+    "drawMax": 30,
+    "drawCount": 5
+  }
+]
