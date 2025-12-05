@@ -7,7 +7,7 @@
     </ul>
 
     {{ range first 1 .Site.Data.kits.lottery }}
-    <button id="lottery-draw" class="btn btn-primary m-2"
+    <button id="lottery-draw" class="btn btn-primary m-2 fs-4" style="text-shadow: 0 0 6px rgba(0,0,0,0.6);"
       data-draw-title="{{ .title }}"
       data-draw-min="{{ .drawMin }}"
       data-draw-max="{{ .drawMax }}"
@@ -26,7 +26,7 @@
     <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
       {{ range .Site.Data.kits.lottery }}
       <div class="col">
-        <button class="lottery-draw-opt btn btn-primary m-1 w-100"
+        <button class="lottery-draw-opt btn btn-primary m-1 w-100 fs-4" style="--bs-btn-bg: {{.color }};text-shadow: 0 0 6px rgba(0,0,0,0.9);"
           data-draw-title="{{ .title }}"
           data-draw-min="{{ .drawMin }}"
           data-draw-max="{{ .drawMax }}"
