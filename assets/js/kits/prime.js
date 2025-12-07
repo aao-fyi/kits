@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     window.Kits = window.Kits || {};
 
     Kits.Prime = {
+        smallPrimes: [2n,3n,5n,7n,11n,13n,17n,19n,23n,29n,31n,37n],
+
         checkBigInt(checkNumber) {
             // Check if BigInt
             if (typeof checkNumber === 'bigint') {
@@ -76,8 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Check small primes
-            const smallPrimes = [2n,3n,5n,7n,11n,13n,17n,19n,23n,29n,31n,37n];
-            for (const smallPrime of smallPrimes) {
+            for (const smallPrime of Kits.Prime.smallPrimes) {
                 // Check if small prime
                 if (checkNumber === smallPrime) {
                     return true;
@@ -118,6 +119,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // Check if 1 or less
             if (checkNumber <= 1n) {
                 return 2n;
+            }
+
+            // Check small primes
+            const smallPrime = Kits.Prime.smallPrimes.indexOf(checkNumber);
+            if (smallPrime !== -1 && smallPrime < Kits.Prime.smallPrimes.length - 1) {
+                return Kits.Prime.smallPrimes[smallPrime + 1];
             }
 
             // Increment checkNumber

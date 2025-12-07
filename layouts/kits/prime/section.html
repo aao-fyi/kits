@@ -4,9 +4,9 @@
             <label for="prime-form-number" class="form-label">Check Number</label>
 
             <div id="prime-form-number-info" class="form-text fs-5 mb-4">
-                Enter an integer to get prime info using 20 iterations of the <a href="https://wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank">Miller-Rabin primality test</a>.
+                Enter an integer to get prime information.
             </div>
-            <input type="text" step="1" inputmode="numeric" class="form-control" name="prime-form-number" id="prime-form-number" aria-describedby="prime-form-number-info" placeholder="420">
+            <input type="text" step="1" inputmode="numeric" class="form-control" name="prime-form-number" id="prime-form-number" aria-describedby="prime-form-number-info" placeholder="#">
 
             <button type="submit" class="prime-form-submit btn btn-primary mt-4">
                 Check {{ partial "icon" "calculator" }}
@@ -17,14 +17,18 @@
 
         <div class="row">
             <div class="col">
-                <p class="">Is Prime?</p>
-                <code id="prime-output-isprime"></code>
+                <p class="">Is Prime:</p>
+                <code id="prime-output-isprime">?</code>
             </div>
             <div class="col">
                 <p class="">Next Prime:</p>
-                <code id="prime-output-nextprime"></code>
+                <code id="prime-output-nextprime">?</code>
             </div>
         </div>
+    </div>
+
+    <div class="container mt-4">
+        {{ .Content }}
     </div>
 {{ end }}
 
