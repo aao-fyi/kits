@@ -26,7 +26,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
       {{ range .Site.Data.kits.lottery }}
       <div class="col">
-        <button class="lottery-draw-opt btn btn-primary m-1 w-100 fs-4" style="--bs-btn-bg: {{.color }};text-shadow: 0 0 6px rgba(0,0,0,0.9);"
+        <button class="lottery-draw-opt btn btn-primary m-1 w-100 fs-4" style="background-color: {{ .color }} !important; border-color: {{ .color }} !important; text-shadow: 0 0 6px rgba(0,0,0,0.9);"
           data-draw-title="{{ .title }}"
           data-draw-min="{{ .drawMin }}"
           data-draw-max="{{ .drawMax }}"
