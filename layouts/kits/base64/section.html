@@ -1,0 +1,76 @@
+{{ define "main" }}
+  <div class="base64 container text-center fw-bold">
+    <form class="base64-form">
+      {{/* Text */}}
+      <div class="row row-cols-1 row-cols-sm-2">
+
+        <div class="col">
+          <label for="base64-form-text" class="form-label mt-2">Base64</label>
+          <textarea class="form-control" name="base64-form-text" id="base64-form-text" inputmode="text" placeholder="Base64" rows="9"></textarea>
+        </div>
+
+        <div class="col">
+          <label for="ascii-form-text" class="form-label mt-2">Text</label>
+          <textarea class="form-control" name="ascii-form-text" id="ascii-form-text" inputmode="text" placeholder="Text" rows="9"></textarea>
+        </div>
+
+      </div>
+      {{/* /Text */}}
+      <hr>
+      {{/* Encodings */}}
+      <div class="row row-cols-1 row-cols-sm-2">
+
+        <div class="col">
+          <label for="base64-form-type" class="form-label mt-2">Base64 Format</label>
+          <select class="form-select" name="base64-form-type" id="base64-form-type">
+            <option value="rfc-4648" selected>RFC 4648 (Base64)</option>
+            <option value="rfc-4648-url">RFC 4648 (Base64URL)</option>
+            <option value="rfc-7468">RFC 7468 (PEM)</option>
+            <option value="rfc-2045">RFC 2045 (MIME)</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="ascii-form-type" class="form-label mt-2">Text Format</label>
+          <select class="form-select" name="ascii-form-type" id="ascii-form-type">
+            <option value="utf-8" selected>UTF-8</option>
+            <option value="ascii">ASCII</option>
+            <option value="iso-8859-1">ISO-8859-1</option>
+          </select>
+        </div>
+
+      </div>
+      {{/* /Encodings */}}
+
+      {{/* Buttons */}}
+      <div class="row row-cols-2">
+
+        <div class="col">
+          <button type="button" id="base64-decode-form-submit" class="btn btn-primary mt-4">
+            Decode
+          </button>
+        </div>
+
+        <div class="col">
+          <button type="button" id="base64-encode-form-submit" class="btn btn-primary mt-4">
+            Encode
+          </button>
+        </div>
+
+      </div>
+      {{/* /Buttons */}}
+
+    </form>
+  </div>
+
+  <div class="container mt-4">
+    {{ .Content }}
+  </div>
+{{ end }}
+
+{{ define "foot" }}
+  {{ $base64JS := resources.Get "js/kits/base64.js" }}
+  {{ $pageJS := slice $base64JS | resources.Concat "js/kits/base64-kit.js" | minify }}
+  {{ $pageSRI := $pageJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $pageSRI.RelPermalink }}" integrity="{{ $pageSRI.Data.Integrity }}"></script>
+{{ end }}
