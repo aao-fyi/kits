@@ -23,7 +23,7 @@
 
     <hr/>
 
-    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
       {{ range .Site.Data.kits.lottery }}
       <div class="col">
         <button class="lottery-draw-opt btn btn-primary m-1 w-100 fs-4" style="--bs-btn-bg: {{.color }};text-shadow: 0 0 6px rgba(0,0,0,0.9);"
@@ -43,7 +43,9 @@
     </div>
   </div>
 
-  {{ .Content | safeHTML }}
+  <div class="container mt-4">
+    {{ .Content }}
+  </div>
 {{ end }}
 
 {{ define "foot" }}
